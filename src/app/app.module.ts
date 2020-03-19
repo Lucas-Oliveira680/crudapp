@@ -8,7 +8,9 @@ import { MaterialModule } from './material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
+import { LoginComponent } from './userAuth/login/login.component';
+import { SignupComponent } from './userAuth/signup/signup.component';
+import { TopbarComponent } from './topbar/topbar.component';
 
 const config = {
   apiKey: "AIzaSyBql7xk63KA0RYs4Dcg5LEWFnJ2dNNiRuU",
@@ -22,7 +24,10 @@ const config = {
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ const config = {
     MaterialModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

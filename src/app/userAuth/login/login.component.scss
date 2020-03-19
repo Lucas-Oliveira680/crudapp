@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+mat-card {
+    width: 400px;
+    text-align: center;
+
+    .profile-avatar {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 1px solid #c1c1c1;
+        box-shadow: 1px #000;
+    }
+}

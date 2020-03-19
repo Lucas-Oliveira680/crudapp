@@ -1,0 +1,23 @@
+mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    #user-status {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.avatar {
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #c1c1c1;
+    margin: 10px;
+    cursor: pointer;
+
+    &:hover {
+        border:2px solid #f1f1f1;
+    }
+ }

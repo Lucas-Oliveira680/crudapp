@@ -1,0 +1,34 @@
+<div class="content">
+    <mat-card>
+        <div *ngIf="auth.user$ | async; then authenticated else guest">
+            <!-- template substitui essa div -->
+        </div>
+    </mat-card>
+    
+    <!-- Usuário não autenticado -->
+    <ng-template #guest>
+    <mat-card-title>Olá</mat-card-title>
+    <mat-card-subtitle>Faça login para começar...</mat-card-subtitle>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <mat-card-actions>
+        <button mat-button color="primary" (click)="auth.googleSignin()">Conectar com o Google</button>
+        <button mat-button color="primary" routerLink="/signup">Criar Conta</button>
+    </mat-card-actions>
+    </ng-template>
+    
+    
+    <!-- Usuário autenticado -->
+    <ng-template #authenticated>
+    <div *ngIf="auth.user$ | async as user">
+        <mat-card-title>Olá, {{ user.displayName }}</mat-card-title>
+        <mat-card-subtitle>Seja bem vindo!</mat-card-subtitle>
+        <img mat-card-image class="profile-avatar" [src]="user.photoURL">
+        <mat-card-content>
+            <h1>Admin</h1>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="warn" (click)="auth.signOut()">Desconectar</button>
+        </mat-card-actions>
+    </div>
+    </ng-template>
+</div>

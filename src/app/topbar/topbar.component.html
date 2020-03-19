@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+    <span>My Application</span>
+    <div id="user-status" *ngIf="auth.user$ | async as user">        
+        <p>Olá: {{ user.displayName | slice:0:6 }}</p> <img class="avatar" [src]="user.photoURL" [matMenuTriggerFor]="appMenu">
+        <mat-menu #appMenu="matMenu">
+            <button mat-menu-item (click)="auth.signOut()">Sair</button>
+            <button mat-menu-item>Sobre</button>
+          </mat-menu>
+    </div>
+  </mat-toolbar>
