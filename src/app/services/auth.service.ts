@@ -7,12 +7,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, first } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
     user$: Observable<User>;
+    logonStatus;
 
     constructor(
         private afAuth: AngularFireAuth,
@@ -39,6 +40,21 @@ export class AuthService {
       const credential = await this.afAuth.auth.signInWithPopup(provider);
       return this.updateUserData(credential.user);
     }
+
+    async CreateWithEmail(user) {
+      try {
+      const credential = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
+      return this.updateUserData(credential.user);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    async EmailSignin(user) {
+        this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+        return this.updateUserData(user);
+    }
+
   
     private updateUserData({ uid,email,displayName,photoURL }) {
       // Define os dados do usuário para o firestore no login
@@ -59,4 +75,6 @@ export class AuthService {
       await this.afAuth.auth.signOut();
       this.router.navigate(['/']);
     }
+
+    
 }

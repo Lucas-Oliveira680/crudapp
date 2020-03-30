@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
+  defaultUserPicture: string = "../../assets/vectors/user-avatar.png";
 
   constructor(public auth: AuthService) { }
 

@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './userAuth/login/login.component';
 import { SignupComponent } from './userAuth/signup/signup.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const config = {
   apiKey: "AIzaSyBql7xk63KA0RYs4Dcg5LEWFnJ2dNNiRuU",
@@ -37,6 +38,7 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

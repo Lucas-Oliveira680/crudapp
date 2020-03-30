@@ -1,1 +1,16 @@
-<p>signup works!</p>
+<h1>Create User</h1>
+<form [formGroup]="newClient" (ngSubmit)="submitHandler()">
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="email">
+    </mat-form-field>
+<br>
+    <mat-form-field>
+        <input matInput formControlName="password" placeholder="password">
+    </mat-form-field>
+<br>
+    <div *ngIf="success">
+        Created with success!
+    </div>
+<br>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

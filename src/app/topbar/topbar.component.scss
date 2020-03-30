@@ -2,7 +2,8 @@ mat-toolbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    #user-status {
+
+    .user-status {
         display: flex;
         flex-direction: row;
         justify-content: space-between;

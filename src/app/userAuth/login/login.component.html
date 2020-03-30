@@ -9,10 +9,24 @@
     <ng-template #guest>
     <mat-card-title>Olá</mat-card-title>
     <mat-card-subtitle>Faça login para começar...</mat-card-subtitle>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <br>
     <mat-card-actions>
         <button mat-button color="primary" (click)="auth.googleSignin()">Conectar com o Google</button>
-        <button mat-button color="primary" routerLink="/signup">Criar Conta</button>
+        <button mat-button color="primary" (click)="toggleLoginMenu()">Conectar com o Email</button>
+        <div *ngIf="emailLogin">
+            <form [formGroup]="loginForm" (ngSubmit)="auth.EmailSignin(loginForm.value)">
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+                <br>
+                <button mat-flat-button color="warn" type="submit">Login</button>
+            </form>
+        </div>
+        <button mat-flat-button color="primary" routerLink="/signup">Criar Conta</button>
     </mat-card-actions>
     </ng-template>
     
